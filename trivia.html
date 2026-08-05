@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Trivia</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="juego-pagina">
+
+
+<h1>❓ Trivia de Preguntas</h1>
+
+
+
+<h2 id="pregunta"></h2>
+
+
+
+<div id="opciones"></div>
+
+
+
+<h3 id="resultadoTrivia"></h3>
+
+
+
+<h3>
+Puntos:
+<span id="puntos">0</span>
+</h3>
+
+
+
+
+<button onclick="siguiente()">
+
+Siguiente
+
+</button>
+
+
+
+<br><br>
+
+
+
+<a href="dashboard.html">
+
+<button>
+
+Volver al menú
+
+</button>
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let preguntas=[
+
+
+{
+
+texto:"¿Qué lenguaje se utiliza para crear la estructura de una página web?",
+
+opciones:[
+"HTML",
+"CSS",
+"Java"
+],
+
+correcta:"HTML"
+
+},
+
+
+
+{
+
+texto:"¿Qué lenguaje se utiliza para dar diseño a una página web?",
+
+opciones:[
+"CSS",
+"Excel",
+"Word"
+],
+
+correcta:"CSS"
+
+},
+
+
+
+{
+
+texto:"¿Cuál es un lenguaje de programación?",
+
+opciones:[
+"JavaScript",
+"Paint",
+"PowerPoint"
+],
+
+correcta:"JavaScript"
+
+}
+
+
+
+];
+
+
+
+
+let numero=0;
+
+let puntos=0;
+
+
+
+
+
+function mostrarPregunta(){
+
+
+let p=preguntas[numero];
+
+
+
+document.getElementById("pregunta")
+.innerHTML=p.texto;
+
+
+
+let botones="";
+
+
+
+p.opciones.forEach(op=>{
+
+
+botones+=`
+
+<button onclick="responder('${op}')">
+
+${op}
+
+</button>
+
+`;
+
+
+});
+
+
+
+document.getElementById("opciones")
+.innerHTML=botones;
+
+
+
+}
+
+
+
+
+
+function responder(op){
+
+
+
+if(op==preguntas[numero].correcta){
+
+
+puntos++;
+
+
+document.getElementById("resultadoTrivia")
+.innerHTML="✅ Correcto";
+
+
+}
+
+else{
+
+
+document.getElementById("resultadoTrivia")
+.innerHTML="❌ Incorrecto";
+
+
+}
+
+
+
+document.getElementById("puntos")
+.innerHTML=puntos;
+
+
+}
+
+
+
+
+
+function siguiente(){
+
+
+numero++;
+
+
+if(numero<preguntas.length){
+
+
+mostrarPregunta();
+
+
+}
+
+else{
+
+
+document.getElementById("pregunta")
+.innerHTML=
+"🎉 Terminaste la trivia";
+
+
+document.getElementById("opciones")
+.innerHTML="";
+
+
+}
+
+
+
+}
+
+
+
+
+mostrarPregunta();
+
+
+</script>
+
+
+</body>
+
+</html>

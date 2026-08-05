@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Piedra Papel Tijera</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="juego-pagina">
+
+
+<h1>
+✊✋✌️ Piedra, Papel y Tijera
+</h1>
+
+
+
+<p>
+Elige tu jugada
+</p>
+
+
+
+<button onclick="jugar('Piedra')">
+✊ Piedra
+</button>
+
+
+<button onclick="jugar('Papel')">
+✋ Papel
+</button>
+
+
+<button onclick="jugar('Tijera')">
+✌️ Tijera
+</button>
+
+
+
+
+<h2 id="resultado"></h2>
+
+
+
+<a href="dashboard.html">
+
+<button>
+Volver al menú
+</button>
+
+</a>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+function jugar(usuario){
+
+
+
+let opciones=[
+
+"Piedra",
+"Papel",
+"Tijera"
+
+];
+
+
+
+let maquina =
+opciones[
+Math.floor(Math.random()*3)
+];
+
+
+
+let resultado="";
+
+
+
+if(usuario==maquina){
+
+
+resultado="🤝 Empate";
+
+
+}
+
+else if(
+
+(usuario=="Piedra" && maquina=="Tijera") ||
+
+(usuario=="Papel" && maquina=="Piedra") ||
+
+(usuario=="Tijera" && maquina=="Papel")
+
+){
+
+
+resultado="🎉 Ganaste";
+
+
+}
+
+else{
+
+
+resultado="😢 Perdiste";
+
+
+}
+
+
+
+
+document.getElementById("resultado")
+.innerHTML=
+
+"Tú elegiste: "+usuario+
+"<br>Computadora: "+maquina+
+"<br>"+resultado;
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tres en Raya</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="juego-pagina">
+
+
+<h1>❌⭕ Tres en Raya</h1>
+
+
+<p>
+Turno del jugador:
+<span id="turno">X</span>
+</p>
+
+
+
+<div id="tablero-raya">
+
+
+<div class="casilla" onclick="jugar(0)"></div>
+
+<div class="casilla" onclick="jugar(1)"></div>
+
+<div class="casilla" onclick="jugar(2)"></div>
+
+
+<div class="casilla" onclick="jugar(3)"></div>
+
+<div class="casilla" onclick="jugar(4)"></div>
+
+<div class="casilla" onclick="jugar(5)"></div>
+
+
+<div class="casilla" onclick="jugar(6)"></div>
+
+<div class="casilla" onclick="jugar(7)"></div>
+
+<div class="casilla" onclick="jugar(8)"></div>
+
+
+</div>
+
+
+
+<h2 id="mensajeRaya"></h2>
+
+
+
+<button onclick="reiniciar()">
+
+🔄 Reiniciar
+
+</button>
+
+
+
+<br><br>
+
+
+<a href="dashboard.html">
+
+<button>
+Volver al menú
+</button>
+
+</a>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let tablero=[
+
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+""
+
+];
+
+
+let jugador="X";
+
+let activo=true;
+
+
+
+
+
+function jugar(pos){
+
+
+if(tablero[pos]=="" && activo){
+
+
+
+tablero[pos]=jugador;
+
+
+
+document
+.getElementsByClassName("casilla")[pos]
+.innerHTML=jugador;
+
+
+
+
+if(comprobarGanador()){
+
+
+document.getElementById("mensajeRaya")
+.innerHTML=
+"🎉 Ganó el jugador "+jugador;
+
+
+activo=false;
+
+
+return;
+
+
+}
+
+
+
+
+if(tablero.every(c=>c!="")){
+
+
+document.getElementById("mensajeRaya")
+.innerHTML=
+"🤝 Empate";
+
+
+activo=false;
+
+
+return;
+
+
+}
+
+
+
+
+jugador=
+jugador=="X"?"O":"X";
+
+
+
+document.getElementById("turno")
+.innerHTML=jugador;
+
+
+}
+
+
+}
+
+
+
+
+
+function comprobarGanador(){
+
+
+let combinaciones=[
+
+
+[0,1,2],
+
+[3,4,5],
+
+[6,7,8],
+
+
+[0,3,6],
+
+[1,4,7],
+
+[2,5,8],
+
+
+[0,4,8],
+
+[2,4,6]
+
+
+];
+
+
+
+return combinaciones.some(c=>{
+
+
+return (
+
+tablero[c[0]] &&
+tablero[c[0]]==tablero[c[1]] &&
+tablero[c[1]]==tablero[c[2]]
+
+);
+
+
+});
+
+
+}
+
+
+
+
+
+function reiniciar(){
+
+
+tablero=[
+
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+""
+
+];
+
+
+jugador="X";
+
+activo=true;
+
+
+
+document
+.querySelectorAll(".casilla")
+.forEach(c=>c.innerHTML="");
+
+
+
+document.getElementById("mensajeRaya")
+.innerHTML="";
+
+
+document.getElementById("turno")
+.innerHTML="X";
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

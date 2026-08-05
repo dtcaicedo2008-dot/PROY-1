@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>El Ahorcado</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="juego-pagina">
+
+
+<h1>🎯 El Ahorcado</h1>
+
+
+<p>
+Adivina la palabra antes de completar el muñeco
+</p>
+
+
+
+<pre id="muñeco">
+
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+=========
+
+</pre>
+
+
+
+
+<h2 id="palabra"></h2>
+
+
+
+<p>
+Intentos:
+<span id="intentos">
+6
+</span>
+</p>
+
+
+
+<input 
+type="text"
+id="letra"
+maxlength="1"
+placeholder="Escribe una letra">
+
+
+
+<button onclick="probarLetra()">
+Probar
+</button>
+
+
+
+<h3 id="mensaje"></h3>
+
+
+
+<button onclick="reiniciarJuego()">
+Reiniciar
+</button>
+
+
+
+<br><br>
+
+
+<a href="dashboard.html">
+
+<button>
+Volver al menú
+</button>
+
+</a>
+
+
+</div>
+
+
+
+
+<script>
+
+
+let palabras=[
+
+"SENA",
+"JUEGO",
+"HTML",
+"CODIGO",
+"SOFTWARE",
+"PROGRAMACION"
+
+];
+
+
+
+let palabra="";
+
+let oculta=[];
+
+let intentos=6;
+
+
+
+
+let dibujos=[
+
+
+`
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+     |
+     |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+ |   |
+     |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+/|\\  |
+     |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+/|\\  |
+/    |
+     |
+=========
+`,
+
+
+`
+ +---+
+ |   |
+ O   |
+/|\\  |
+/ \\  |
+     |
+=========
+`
+
+];
+
+
+
+
+
+function iniciarJuego(){
+
+
+palabra =
+palabras[
+Math.floor(Math.random()*palabras.length)
+];
+
+
+
+oculta =
+Array(palabra.length).fill("_");
+
+
+
+intentos=6;
+
+
+
+document.getElementById("palabra")
+.innerHTML=
+oculta.join(" ");
+
+
+
+document.getElementById("muñeco")
+.innerHTML=
+dibujos[0];
+
+
+document.getElementById("mensaje")
+.innerHTML="";
+
+
+}
+
+
+
+
+
+function probarLetra(){
+
+
+let letra =
+document.getElementById("letra")
+.value.toUpperCase();
+
+
+
+if(letra=="") return;
+
+
+
+let encontrada=false;
+
+
+
+for(let i=0;i<palabra.length;i++){
+
+
+if(palabra[i]==letra){
+
+oculta[i]=letra;
+
+encontrada=true;
+
+}
+
+
+}
+
+
+
+if(!encontrada){
+
+
+intentos--;
+
+
+document.getElementById("muñeco")
+.innerHTML=
+dibujos[6-intentos];
+
+}
+
+
+
+
+document.getElementById("palabra")
+.innerHTML=
+oculta.join(" ");
+
+
+
+document.getElementById("intentos")
+.innerHTML=
+intentos;
+
+
+
+
+
+if(!oculta.includes("_")){
+
+
+document.getElementById("mensaje")
+.innerHTML=
+"🎉 ¡Ganaste!";
+
+
+}
+
+
+
+
+if(intentos==0){
+
+
+document.getElementById("mensaje")
+.innerHTML=
+"❌ Perdiste. La palabra era "+palabra;
+
+
+}
+
+
+
+document.getElementById("letra").value="";
+
+
+}
+
+
+
+
+function reiniciarJuego(){
+
+iniciarJuego();
+
+}
+
+
+
+iniciarJuego();
+
+
+
+</script>
+
+
+</body>
+
+</html>
