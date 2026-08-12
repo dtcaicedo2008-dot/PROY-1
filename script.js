@@ -33,3 +33,27 @@ document.getElementById("error").innerHTML =
 
 
 }
+function actualizarMuneco() {
+
+    const personaje =
+        document.getElementById("personaje");
+
+    personaje.classList.remove(
+        "error1",
+        "error2",
+        "error3",
+        "error4",
+        "error5",
+        "error6"
+    );
+
+    const errores = 6 - vidas;
+
+    if (errores > 0) {
+
+        personaje.classList.add(
+            "error" + errores
+        );
+
+    }
+}

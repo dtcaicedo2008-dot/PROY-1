@@ -11,7 +11,7 @@ font-family:Arial, sans-serif;
 
 body{
 
-background:linear-gradient(135deg,#667eea,#764ba2);
+background:linear-gradient(135deg,#667eea,#ac78e0);
 
 min-height:100vh;
 
@@ -48,7 +48,7 @@ box-shadow:0 10px 25px rgba(0,0,0,.3);
 
 .login h1{
 
-color:#5b21b6;
+color:#7137ce;
 
 font-size:35px;
 
@@ -106,7 +106,7 @@ border:none;
 
 border-radius:30px;
 
-background:#5b21b6;
+background:#6f40b9;
 
 color:white;
 
@@ -520,5 +520,614 @@ cursor:pointer;
 .memoria-carta:hover{
 
 transform:scale(1.05);
+
+}
+/* ACERCA DE */
+
+.acerca{
+
+    width:90%;
+    
+    max-width:1000px;
+    
+    margin:40px auto;
+    
+    text-align:center;
+    
+    }
+    
+    
+    .titulo-acerca{
+    
+    color:white;
+    
+    margin-bottom:30px;
+    
+    }
+    
+    
+    .tarjeta{
+    
+    background:white;
+    
+    padding:30px;
+    
+    margin:25px 0;
+    
+    border-radius:25px;
+    
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    
+    color:#333;
+    
+    text-align:left;
+    
+    }
+    
+    
+    
+    .tarjeta h2{
+    
+    color:#5b21b6;
+    
+    margin-bottom:15px;
+    
+    }
+    
+    
+    
+    .tarjeta p{
+    
+    line-height:1.6;
+    
+    }
+    
+    
+    
+    .tarjeta li{
+    
+    margin:10px;
+    
+    }
+    
+    
+    
+    
+    .tecnologias{
+    
+    display:flex;
+    
+    gap:15px;
+    
+    flex-wrap:wrap;
+    
+    }
+    
+    
+    
+    .tecnologias span{
+    
+    background:#5b21b6;
+    
+    color:white;
+    
+    padding:12px 20px;
+    
+    border-radius:20px;
+    
+    font-weight:bold;
+    
+    }
+    
+    
+    
+    
+    .integrantes{
+    
+    display:grid;
+    
+    grid-template-columns:repeat(3,1fr);
+    
+    gap:20px;
+    
+    }
+    
+    
+    
+    .persona{
+    
+    background:#ede9fe;
+    
+    padding:20px;
+    
+    border-radius:15px;
+    
+    text-align:center;
+    
+    }
+    
+    
+    
+    
+    @media(max-width:800px){
+    
+    .integrantes{
+    
+    grid-template-columns:1fr;
+    
+    }
+    
+    }
+
+    /* =====================================================
+   🎯 AHORCADO - MUÑECO BONITO
+   Agregar al FINAL de tu style.css
+   ===================================================== */
+
+/* CONTENEDOR DEL MUÑECO */
+.personaje {
+    position: relative;
+    width: 210px;
+    height: 350px;
+    margin: auto;
+}
+
+
+/* TODAS LAS PARTES COMIENZAN OCULTAS */
+.personaje .parte {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+/* =====================================================
+   👧 CABEZA
+   ===================================================== */
+
+.personaje .cabeza {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    top: 20px;
+    left: 52px;
+
+    background: #ffd6b3;
+
+    border: 4px solid #7c3aed;
+
+    border-radius: 50%;
+
+    z-index: 5;
+
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+
+}
+
+
+/* CABELLO */
+
+.personaje .cabello {
+    position: absolute;
+
+    width: 115px;
+    height: 65px;
+
+    top: 15px;
+    left: 47px;
+
+    background: #4c1d95;
+
+    border-radius: 60px 60px 25px 25px;
+
+    z-index: 6;
+}
+
+
+/* MECHONES */
+
+.personaje .cabello::before {
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 65px;
+
+    left: -15px;
+    top: 25px;
+
+    background: #4c1d95;
+
+    border-radius: 50%;
+}
+
+
+.personaje .cabello::after {
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 65px;
+
+    right: -15px;
+    top: 25px;
+
+    background: #4c1d95;
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   👀 OJOS
+   ===================================================== */
+
+.personaje .ojo {
+    position: absolute;
+
+    width: 9px;
+    height: 13px;
+
+    top: 48px;
+
+    background: #312e81;
+
+    border-radius: 50%;
+}
+
+
+.personaje .ojo-izquierdo {
+    left: 27px;
+}
+
+
+.personaje .ojo-derecho {
+    right: 27px;
+}
+
+
+/* BOCA */
+
+.personaje .boca {
+    position: absolute;
+
+    width: 25px;
+    height: 12px;
+
+    left: 36px;
+    bottom: 25px;
+
+    border-bottom: 4px solid #be185d;
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   👕 CUERPO
+   ===================================================== */
+
+.personaje .cuerpo {
+    position: absolute;
+
+    width: 100px;
+    height: 120px;
+
+    top: 120px;
+    left: 55px;
+
+    background: linear-gradient(
+        135deg,
+        #a78bfa,
+        #6d28d9
+    );
+
+    border: 4px solid #5b21b6;
+
+    border-radius: 35px 35px 20px 20px;
+
+    z-index: 3;
+
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+}
+
+
+/* =====================================================
+   🫱 BRAZOS
+   ===================================================== */
+
+.personaje .brazo {
+    position: absolute;
+
+    width: 25px;
+    height: 100px;
+
+    top: 130px;
+
+    background: #ffd6b3;
+
+    border: 3px solid #7c3aed;
+
+    border-radius: 20px;
+
+    z-index: 2;
+}
+
+
+.personaje .brazo-izquierdo {
+    left: 35px;
+    transform: rotate(25deg);
+}
+
+
+.personaje .brazo-derecho {
+    right: 35px;
+    transform: rotate(-25deg);
+}
+
+
+/* =====================================================
+   🦵 PIERNAS
+   ===================================================== */
+
+.personaje .pierna {
+    position: absolute;
+
+    width: 28px;
+    height: 100px;
+
+    top: 225px;
+
+    background: #3730a3;
+
+    border: 3px solid #312e81;
+
+    border-radius: 20px;
+
+    z-index: 1;
+}
+
+
+.personaje .pierna-izquierda {
+    left: 70px;
+    transform: rotate(7deg);
+}
+
+
+.personaje .pierna-derecha {
+    right: 70px;
+    transform: rotate(-7deg);
+}
+
+
+/* =====================================================
+   👟 ZAPATOS
+   ===================================================== */
+
+.personaje .zapato {
+    position: absolute;
+
+    width: 50px;
+    height: 25px;
+
+    top: 310px;
+
+    background: #312e81;
+
+    border-radius: 25px;
+
+    z-index: 4;
+}
+
+
+.personaje .zapato-izquierdo {
+    left: 45px;
+}
+
+
+.personaje .zapato-derecho {
+    right: 45px;
+}
+
+
+/* =====================================================
+   ❌ ERROR 1
+   CABEZA
+   ===================================================== */
+
+.personaje.error1 .cabeza,
+.personaje.error1 .cabello {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    animation: aparecerMuneco 0.5s ease;
+}
+
+
+/* =====================================================
+   ❌ ERROR 2
+   CUERPO
+   ===================================================== */
+
+.personaje.error2 .cabeza,
+.personaje.error2 .cabello,
+.personaje.error2 .cuerpo {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   ❌ ERROR 3
+   BRAZO IZQUIERDO
+   ===================================================== */
+
+.personaje.error3 .cabeza,
+.personaje.error3 .cabello,
+.personaje.error3 .cuerpo,
+.personaje.error3 .brazo-izquierdo {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   ❌ ERROR 4
+   BRAZO DERECHO
+   ===================================================== */
+
+.personaje.error4 .cabeza,
+.personaje.error4 .cabello,
+.personaje.error4 .cuerpo,
+.personaje.error4 .brazo-izquierdo,
+.personaje.error4 .brazo-derecho {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   ❌ ERROR 5
+   PIERNA IZQUIERDA
+   ===================================================== */
+
+.personaje.error5 .cabeza,
+.personaje.error5 .cabello,
+.personaje.error5 .cuerpo,
+.personaje.error5 .brazo-izquierdo,
+.personaje.error5 .brazo-derecho,
+.personaje.error5 .pierna-izquierda {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   ❌ ERROR 6
+   MUÑECO COMPLETO
+   ===================================================== */
+
+.personaje.error6 .cabeza,
+.personaje.error6 .cabello,
+.personaje.error6 .cuerpo,
+.personaje.error6 .brazo-izquierdo,
+.personaje.error6 .brazo-derecho,
+.personaje.error6 .pierna-izquierda,
+.personaje.error6 .pierna-derecha,
+.personaje.error6 .zapato-izquierdo,
+.personaje.error6 .zapato-derecho {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =====================================================
+   ✨ ANIMACIÓN CUANDO APARECE CADA PARTE
+   ===================================================== */
+
+@keyframes aparecerMuneco {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-10deg);
+    }
+
+    70% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+}
+
+
+/* =====================================================
+   🎉 ANIMACIÓN AL GANAR
+   ===================================================== */
+
+.personaje.ganador {
+
+    animation: saltito 0.6s infinite alternate;
+
+}
+
+
+@keyframes saltito {
+
+    from {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    to {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+}
+
+
+/* =====================================================
+   😢 ANIMACIÓN AL PERDER
+   ===================================================== */
+
+.personaje.perdedor {
+
+    animation: triste 0.5s ease;
+
+}
+
+
+@keyframes triste {
+
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+
+    75% {
+        transform: rotate(-8deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+
+}
+
+
+/* =====================================================
+   📱 CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .personaje {
+        transform: scale(0.8);
+    }
 
 }
