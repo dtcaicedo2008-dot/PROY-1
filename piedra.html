@@ -1,150 +1,139 @@
-<!DOCTYPE html>
+><!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-<meta charset="UTF-8">
-
-<title>Piedra Papel Tijera</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<header class="header">
 
-<div class="juego-pagina">
+    <div class="logo">🎮 GameZone</div>
 
+    <nav>
+        <a href="dashboard.html">Inicio</a>
+        <a href="acerca.html">Acerca de</a>
+    </nav>
 
-<h1>
-✊✋✌️ Piedra, Papel y Tijera
-</h1>
-
-
-
-<p>
-Elige tu jugada
-</p>
+</header>
 
 
+<main class="game-page">
 
-<button onclick="jugar('Piedra')">
-✊ Piedra
-</button>
+    <h1>✊ Piedra, Papel o Tijera ✂️</h1>
 
+    <p>¡Elige una opción!</p>
 
-<button onclick="jugar('Papel')">
-✋ Papel
-</button>
+    <div class="opciones-ppt">
 
+        <button onclick="jugar('Piedra')">
+            ✊<br>Piedra
+        </button>
 
-<button onclick="jugar('Tijera')">
-✌️ Tijera
-</button>
+        <button onclick="jugar('Papel')">
+            📄<br>Papel
+        </button>
 
+        <button onclick="jugar('Tijera')">
+            ✂️<br>Tijera
+        </button>
 
+    </div>
 
+    <div class="resultado">
 
-<h2 id="resultado"></h2>
+        <p id="jugador"></p>
 
+        <p id="computadora"></p>
 
+        <h2 id="resultadoFinal"></h2>
 
-<a href="dashboard.html">
+        <p id="marcador">
+            Tú: 0 | Computadora: 0
+        </p>
 
-<button>
-Volver al menú
-</button>
+    </div>
 
-</a>
+    <a href="dashboard.html" class="btn-secundario">
+        ⬅ Volver
+    </a>
 
-
-</div>
-
-
-
+</main>
 
 
 <script>
 
-
-function jugar(usuario){
-
-
-
-let opciones=[
-
-"Piedra",
-"Papel",
-"Tijera"
-
-];
+let puntosJugador = 0;
+let puntosComputadora = 0;
 
 
+function jugar(eleccionJugador){
 
-let maquina =
-opciones[
-Math.floor(Math.random()*3)
-];
+    const opciones = [
+        "Piedra",
+        "Papel",
+        "Tijera"
+    ];
 
-
-
-let resultado="";
-
-
-
-if(usuario==maquina){
+    const eleccionComputadora =
+        opciones[Math.floor(Math.random() * 3)];
 
 
-resultado="🤝 Empate";
+    document.getElementById("jugador").textContent =
+        "👤 Tú elegiste: " + eleccionJugador;
+
+    document.getElementById("computadora").textContent =
+        "🤖 Computadora eligió: " + eleccionComputadora;
 
 
-}
-
-else if(
-
-(usuario=="Piedra" && maquina=="Tijera") ||
-
-(usuario=="Papel" && maquina=="Piedra") ||
-
-(usuario=="Tijera" && maquina=="Papel")
-
-){
+    let resultado = "";
 
 
-resultado="🎉 Ganaste";
+    if(eleccionJugador === eleccionComputadora){
+
+        resultado = "🤝 ¡Empate!";
+
+    }
+
+    else if(
+
+        (eleccionJugador === "Piedra" &&
+        eleccionComputadora === "Tijera") ||
+
+        (eleccionJugador === "Papel" &&
+        eleccionComputadora === "Piedra") ||
+
+        (eleccionJugador === "Tijera" &&
+        eleccionComputadora === "Papel")
+
+    ){
+
+        resultado = "🎉 ¡Ganaste!";
+        puntosJugador++;
+
+    }
+
+    else{
+
+        resultado = "😢 ¡Ganó la computadora!";
+        puntosComputadora++;
+
+    }
 
 
-}
+    document.getElementById("resultadoFinal").textContent =
+        resultado;
 
-else{
-
-
-resultado="😢 Perdiste";
-
-
-}
-
-
-
-
-document.getElementById("resultado")
-.innerHTML=
-
-"Tú elegiste: "+usuario+
-"<br>Computadora: "+maquina+
-"<br>"+resultado;
-
-
+    document.getElementById("marcador").textContent =
+        "Tú: " + puntosJugador +
+        " | Computadora: " + puntosComputadora;
 
 }
-
-
 
 </script>
 
-
 </body>
-
 </html>

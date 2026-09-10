@@ -1,267 +1,487 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Trivia Infantil - GameZone SENA</title>
 
-<title>Trivia</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<header class="header">
 
-<div class="juego-pagina">
+    <div class="logo">
+        🎮 GameZone SENA
+    </div>
 
+    <nav>
+        <a href="dashboard.html">Inicio</a>
+        <a href="acerca.html">Acerca de</a>
+    </nav>
 
-<h1>❓ Trivia de Preguntas</h1>
-
-
-
-<h2 id="pregunta"></h2>
-
-
-
-<div id="opciones"></div>
-
+</header>
 
 
-<h3 id="resultadoTrivia"></h3>
+<main class="game-page trivia-page">
+
+    <div class="titulo-juego">
+
+        <span>🧠</span>
+
+        <h1>Trivia Divertida</h1>
+
+        <span>⭐</span>
+
+    </div>
+
+    <p class="subtitulo-trivia">
+        ¡Responde las preguntas y demuestra cuánto sabes! 🌈
+    </p>
 
 
+    <!-- PROGRESO -->
 
-<h3>
-Puntos:
-<span id="puntos">0</span>
-</h3>
+    <div class="progreso">
 
+        <span id="numeroPregunta">
+            Pregunta 1 de 10
+        </span>
 
-
-
-<button onclick="siguiente()">
-
-Siguiente
-
-</button>
+    </div>
 
 
+    <!-- CAJA DE PREGUNTA -->
 
-<br><br>
+    <div class="trivia-box">
+
+        <div class="personaje-trivia">
+            🧒
+        </div>
+
+        <h2 id="pregunta">
+            Pregunta
+        </h2>
+
+        <div id="respuestas">
+        </div>
+
+        <p id="resultadoTrivia"></p>
+
+    </div>
 
 
+    <!-- PUNTAJE -->
 
-<a href="dashboard.html">
+    <div class="puntaje-trivia">
 
-<button>
+        ⭐ Puntos:
+        <strong id="puntaje">
+            0
+        </strong>
 
-Volver al menú
-
-</button>
-
-</a>
-
-
-</div>
+    </div>
 
 
+    <button
+        id="siguiente"
+        onclick="siguientePregunta()"
+        class="btn-principal"
+        style="display:none;">
+
+        Siguiente ➡️
+
+    </button>
 
 
+    <div id="finalTrivia" style="display:none;">
+
+        <h2>🎉 ¡Terminaste la Trivia!</h2>
+
+        <p id="resultadoFinal"></p>
+
+        <button
+            onclick="reiniciarTrivia()"
+            class="btn-principal">
+
+            🔄 Jugar otra vez
+
+        </button>
+
+    </div>
+
+
+    <br>
+
+    <a href="dashboard.html" class="btn-secundario">
+        ⬅ Volver a los juegos
+    </a>
+
+</main>
 
 
 <script>
 
+/* =====================================
+   PREGUNTAS PARA NIÑOS
+===================================== */
 
-let preguntas=[
+const preguntas = [
 
+    {
+        pregunta: "🐶 ¿Qué animal hace 'guau guau'?",
+        respuestas: [
+            "Gato",
+            "Perro",
+            "Vaca",
+            "Pato"
+        ],
+        correcta: "Perro"
+    },
 
-{
+    {
+        pregunta: "🌈 ¿Cuántos colores tiene normalmente el arcoíris?",
+        respuestas: [
+            "5",
+            "6",
+            "7",
+            "10"
+        ],
+        correcta: "7"
+    },
 
-texto:"¿Qué lenguaje se utiliza para crear la estructura de una página web?",
+    {
+        pregunta: "🐱 ¿Cuál de estos animales dice 'miau'?",
+        respuestas: [
+            "Gato",
+            "León",
+            "Caballo",
+            "Pez"
+        ],
+        correcta: "Gato"
+    },
 
-opciones:[
-"HTML",
-"CSS",
-"Java"
-],
+    {
+        pregunta: "🌎 ¿En qué planeta vivimos?",
+        respuestas: [
+            "Marte",
+            "La Tierra",
+            "Júpiter",
+            "La Luna"
+        ],
+        correcta: "La Tierra"
+    },
 
-correcta:"HTML"
+    {
+        pregunta: "🍎 ¿De qué color es normalmente una manzana roja?",
+        respuestas: [
+            "Azul",
+            "Verde",
+            "Rojo",
+            "Morado"
+        ],
+        correcta: "Rojo"
+    },
 
-},
+    {
+        pregunta: "🐟 ¿Dónde viven principalmente los peces?",
+        respuestas: [
+            "En el agua",
+            "En los árboles",
+            "En el desierto",
+            "En las nubes"
+        ],
+        correcta: "En el agua"
+    },
 
+    {
+        pregunta: "☀️ ¿Qué nos da luz durante el día?",
+        respuestas: [
+            "La Luna",
+            "El Sol",
+            "Las estrellas",
+            "Una nube"
+        ],
+        correcta: "El Sol"
+    },
 
+    {
+        pregunta: "🐘 ¿Cuál es un animal muy grande y tiene una trompa?",
+        respuestas: [
+            "Conejo",
+            "Elefante",
+            "Gato",
+            "Gallina"
+        ],
+        correcta: "Elefante"
+    },
 
-{
+    {
+        pregunta: "🧙‍♂️ ¿Qué personaje suele usar una varita mágica?",
+        respuestas: [
+            "Mago",
+            "Panadero",
+            "Piloto",
+            "Doctor"
+        ],
+        correcta: "Mago"
+    },
 
-texto:"¿Qué lenguaje se utiliza para dar diseño a una página web?",
-
-opciones:[
-"CSS",
-"Excel",
-"Word"
-],
-
-correcta:"CSS"
-
-},
-
-
-
-{
-
-texto:"¿Cuál es un lenguaje de programación?",
-
-opciones:[
-"JavaScript",
-"Paint",
-"PowerPoint"
-],
-
-correcta:"JavaScript"
-
-}
-
-
+    {
+        pregunta: "🚗 ¿Qué vehículo tiene cuatro ruedas y normalmente usamos para viajar por carretera?",
+        respuestas: [
+            "Avión",
+            "Barco",
+            "Carro",
+            "Bicicleta"
+        ],
+        correcta: "Carro"
+    }
 
 ];
 
 
+let preguntaActual = 0;
+let puntos = 0;
 
 
-let numero=0;
-
-let puntos=0;
-
-
-
-
+/* =====================================
+   MOSTRAR PREGUNTA
+===================================== */
 
 function mostrarPregunta(){
 
-
-let p=preguntas[numero];
-
-
-
-document.getElementById("pregunta")
-.innerHTML=p.texto;
+    const pregunta =
+        preguntas[preguntaActual];
 
 
-
-let botones="";
-
-
-
-p.opciones.forEach(op=>{
-
-
-botones+=`
-
-<button onclick="responder('${op}')">
-
-${op}
-
-</button>
-
-`;
+    document.getElementById("numeroPregunta").textContent =
+        "Pregunta " +
+        (preguntaActual + 1) +
+        " de " +
+        preguntas.length;
 
 
-});
+    document.getElementById("pregunta").textContent =
+        pregunta.pregunta;
 
 
-
-document.getElementById("opciones")
-.innerHTML=botones;
-
+    const contenedor =
+        document.getElementById("respuestas");
 
 
-}
+    contenedor.innerHTML = "";
 
 
+    document.getElementById("resultadoTrivia").textContent =
+        "";
 
 
+    pregunta.respuestas.forEach((respuesta, indice) => {
 
-function responder(op){
-
-
-
-if(op==preguntas[numero].correcta){
+        const boton =
+            document.createElement("button");
 
 
-puntos++;
+        boton.textContent =
+            respuesta;
 
 
-document.getElementById("resultadoTrivia")
-.innerHTML="✅ Correcto";
+        boton.onclick = function(){
+
+            responder(respuesta);
+
+        };
 
 
-}
+        contenedor.appendChild(boton);
 
-else{
+    });
 
 
-document.getElementById("resultadoTrivia")
-.innerHTML="❌ Incorrecto";
-
+    document.getElementById("siguiente").style.display =
+        "none";
 
 }
 
 
+/* =====================================
+   RESPONDER
+===================================== */
 
-document.getElementById("puntos")
-.innerHTML=puntos;
+function responder(respuesta){
 
+    const correcta =
+        preguntas[preguntaActual].correcta;
+
+
+    const botones =
+        document.querySelectorAll(
+            "#respuestas button"
+        );
+
+
+    botones.forEach(boton => {
+
+        boton.disabled = true;
+
+        if(boton.textContent === correcta){
+
+            boton.classList.add("respuesta-correcta");
+
+        }
+
+    });
+
+
+    if(respuesta === correcta){
+
+        puntos++;
+
+        document.getElementById("resultadoTrivia").textContent =
+            "🎉 ¡Muy bien! Respuesta correcta.";
+
+    }
+
+    else{
+
+        document.getElementById("resultadoTrivia").textContent =
+            "😊 ¡Casi! La respuesta era: " +
+            correcta;
+
+    }
+
+
+    document.getElementById("puntaje").textContent =
+        puntos;
+
+
+    document.getElementById("siguiente").style.display =
+        "inline-block";
 
 }
 
 
+/* =====================================
+   SIGUIENTE PREGUNTA
+===================================== */
+
+function siguientePregunta(){
+
+    preguntaActual++;
 
 
+    if(preguntaActual < preguntas.length){
 
-function siguiente(){
+        mostrarPregunta();
+
+    }
+
+    else{
+
+        terminarTrivia();
+
+    }
+
+}
 
 
-numero++;
+/* =====================================
+   TERMINAR
+===================================== */
+
+function terminarTrivia(){
+
+    document.querySelector(".trivia-box").style.display =
+        "none";
+
+    document.getElementById("siguiente").style.display =
+        "none";
+
+    document.querySelector(".puntaje-trivia").style.display =
+        "none";
+
+    document.getElementById("finalTrivia").style.display =
+        "block";
 
 
-if(numero<preguntas.length){
+    let mensaje = "";
+
+
+    if(puntos === 10){
+
+        mensaje =
+            "🏆 ¡Perfecto! Respondiste todo correctamente.";
+
+    }
+
+    else if(puntos >= 7){
+
+        mensaje =
+            "🌟 ¡Excelente! Sabes muchísimo.";
+
+    }
+
+    else if(puntos >= 5){
+
+        mensaje =
+            "😊 ¡Muy bien! Sigue practicando.";
+
+    }
+
+    else{
+
+        mensaje =
+            "💪 ¡Buen intento! Puedes volver a jugar.";
+
+    }
+
+
+    document.getElementById("resultadoFinal").textContent =
+        "Conseguiste " +
+        puntos +
+        " de " +
+        preguntas.length +
+        " puntos. " +
+        mensaje;
+
+}
+
+
+/* =====================================
+   REINICIAR
+===================================== */
+
+function reiniciarTrivia(){
+
+    preguntaActual = 0;
+
+    puntos = 0;
+
+
+    document.querySelector(".trivia-box").style.display =
+        "block";
+
+    document.querySelector(".puntaje-trivia").style.display =
+        "block";
+
+    document.getElementById("finalTrivia").style.display =
+        "none";
+
+    document.getElementById("puntaje").textContent =
+        "0";
+
+
+    mostrarPregunta();
+
+}
 
 
 mostrarPregunta();
-
-
-}
-
-else{
-
-
-document.getElementById("pregunta")
-.innerHTML=
-"🎉 Terminaste la trivia";
-
-
-document.getElementById("opciones")
-.innerHTML="";
-
-
-}
-
-
-
-}
-
-
-
-
-mostrarPregunta();
-
 
 </script>
 
-
 </body>
-
 </html>

@@ -7,1029 +7,468 @@
     <title>Acerca de - GameZone </title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-
-        /* =========================================
-           PÁGINA ACERCA DE - GAMEZONE 
-        ========================================= */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #eee5ff, #f9f7ff);
-            color: #29213d;
-        }
-
-        .acerca-container {
-            width: 92%;
-            max-width: 1150px;
-            margin: 30px auto;
-        }
-
-        /* =========================================
-           ENCABEZADO
-        ========================================= */
-
-        .acerca-header {
-            background: linear-gradient(135deg, #6c3bc4, #8d5bd1);
-            color: white;
-            padding: 45px 25px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 12px 30px rgba(75, 40, 130, .20);
-        }
-
-        .acerca-header .logo {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .acerca-header h1 {
-            font-size: 42px;
-            margin: 10px 0;
-        }
-
-        .acerca-header p {
-            font-size: 17px;
-            margin: 8px auto;
-            max-width: 750px;
-            line-height: 1.6;
-        }
-
-        /* =========================================
-           BOTÓN VOLVER
-        ========================================= */
-
-        .volver {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 22px;
-            background: white;
-            color: #6236a5;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .volver:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,.15);
-        }
-
-        /* =========================================
-           SECCIONES
-        ========================================= */
-
-        .seccion {
-            background: white;
-            margin-top: 25px;
-            padding: 35px;
-            border-radius: 22px;
-            box-shadow: 0 8px 25px rgba(70, 40, 110, .10);
-        }
-
-        .seccion h2 {
-            text-align: center;
-            color: #6338a7;
-            font-size: 30px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .seccion > p {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            line-height: 1.7;
-            color: #666;
-        }
-
-        /* =========================================
-           INTEGRANTES
-        ========================================= */
-
-        .integrantes {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-            margin-top: 30px;
-        }
-
-        .integrante {
-            background: #f8f5ff;
-            border: 1px solid #e5dafa;
-            border-radius: 18px;
-            padding: 25px 12px;
-            text-align: center;
-            transition: .3s;
-        }
-
-        .integrante:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 20px rgba(108,59,196,.15);
-        }
-
-        .integrante .avatar {
-            width: 70px;
-            height: 70px;
-            margin: auto auto 15px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8c5bd1, #6236a5);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-        }
-
-        .integrante h3 {
-            color: #55308c;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .integrante p {
-            color: #777;
-            font-size: 13px;
-            margin: 0;
-        }
-
-        /* =========================================
-           TECNOLOGÍAS
-        ========================================= */
-
-        .tecnologias {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .tecnologia {
-            padding: 25px;
-            border-radius: 18px;
-            background: #f8f5ff;
-            text-align: center;
-            border: 1px solid #e5dafa;
-            transition: .3s;
-        }
-
-        .tecnologia:hover {
-            transform: translateY(-5px);
-        }
-
-        .tecnologia .icono {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
-
-        .tecnologia h3 {
-            color: #55308c;
-        }
-
-        .tecnologia p {
-            color: #666;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-
-        /* =========================================
-           JUEGOS
-        ========================================= */
-
-        .juegos {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .juego-card {
-            background: #f8f5ff;
-            padding: 22px 12px;
-            text-align: center;
-            border-radius: 18px;
-            border: 1px solid #e5dafa;
-            transition: .3s;
-        }
-
-        .juego-card:hover {
-            transform: translateY(-6px);
-            background: #f1eaff;
-        }
-
-        .juego-card .emoji {
-            font-size: 38px;
-        }
-
-        .juego-card h3 {
-            color: #55308c;
-            font-size: 16px;
-        }
-
-        .juego-card p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        /* =========================================
-           HABILIDADES
-        ========================================= */
-
-        .habilidades {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .habilidad {
-            background: #f8f5ff;
-            padding: 25px 18px;
-            border-radius: 18px;
-            border: 1px solid #e5dafa;
-            text-align: center;
-            transition: .3s;
-        }
-
-        .habilidad:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 20px rgba(108,59,196,.15);
-        }
-
-        .habilidad .icono {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .habilidad h3 {
-            color: #55308c;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .habilidad p {
-            color: #666;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-
-        /* =========================================
-           OBJETIVO
-        ========================================= */
-
-        .objetivo-box {
-            background: linear-gradient(
-                135deg,
-                #f4efff,
-                #eee5ff
-            );
-
-            border-left: 6px solid #7042c3;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            margin-top: 25px;
-        }
-
-        .objetivo-box p {
-            color: #555;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* =========================================
-           INFORMACIÓN DEL PROYECTO
-        ========================================= */
-
-        .datos-proyecto {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .dato {
-            text-align: center;
-            padding: 20px;
-            background: #f8f5ff;
-            border-radius: 15px;
-        }
-
-        .dato strong {
-            display: block;
-            color: #6338a7;
-            margin-bottom: 7px;
-        }
-
-        .dato span {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* =========================================
-           PIE DE PÁGINA
-        ========================================= */
-
-        .footer-acerca {
-            text-align: center;
-            padding: 30px 15px;
-            color: #777;
-        }
-
-        .footer-acerca strong {
-            color: #6338a7;
-        }
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media (max-width: 1000px) {
-
-            .integrantes {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .juegos {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .habilidades {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 700px) {
-
-            .acerca-header h1 {
-                font-size: 32px;
-            }
-
-            .integrantes {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .tecnologias {
-                grid-template-columns: 1fr;
-            }
-
-            .juegos {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .datos-proyecto {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-        }
-
-        @media (max-width: 450px) {
-
-            .acerca-container {
-                width: 95%;
-            }
-
-            .seccion {
-                padding: 22px 15px;
-            }
-
-            .integrantes,
-            .habilidades,
-            .juegos,
-            .datos-proyecto {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
 </head>
 
 <body>
 
-<div class="acerca-container">
+    <!-- ================= HEADER ================= -->
 
-    <!-- =========================================
-         ENCABEZADO
-    ========================================== -->
-
-    <header class="acerca-header">
+    <header class="header">
 
         <div class="logo">
-            🎮 GAMEZONE 
+            🎮 GameZone
         </div>
 
-        <h1>Acerca de nosotros</h1>
-
-        <p>
-            Conoce nuestro proyecto productivo,
-            nuestro equipo, las tecnologías utilizadas
-            y las habilidades que desarrollamos durante
-            su elaboración.
-        </p>
-
-        <a
-            href="dashboard.html"
-            class="volver">
-            🏠 Volver al Dashboard
-        </a>
+        <nav>
+            <a href="dashboard.html">Inicio</a>
+            <a href="acerca.html">Acerca de</a>
+            <a href="index.html">Salir</a>
+        </nav>
 
     </header>
 
 
-    <!-- =========================================
-         SOBRE EL PROYECTO
-    ========================================== -->
+    <!-- ================= CONTENIDO ================= -->
 
-    <section class="seccion">
+    <main class="acerca">
 
-        <h2>🎯 Sobre nuestro proyecto</h2>
+        <!-- PRESENTACIÓN -->
 
-        <p>
-            GameZone  es una plataforma web de juegos
-            interactivos desarrollada como proyecto productivo
-            del programa de Programación de Software.
-        </p>
+        <section class="acerca-hero">
 
-        <div class="objetivo-box">
+            <div class="acerca-icono">
+                🎮
+            </div>
+
+            <h1>Acerca de GameZone</h1>
 
             <p>
-                <strong>Objetivo:</strong>
-                crear una plataforma entretenida, interactiva
-                y fácil de utilizar, aplicando los conocimientos
-                adquiridos durante nuestra formación en
-                programación de software.
+                Bienvenidos a <strong>GameZone</strong>, una plataforma
+                web interactiva creada para ofrecer una experiencia divertida,
+                educativa y entretenida a través de diferentes juegos.
             </p>
 
-        </div>
+            <p>
+                Nuestro proyecto fue desarrollado aplicando conocimientos de
+                <strong>HTML, CSS y JavaScript</strong>, utilizando
+                <strong>Visual Studio Code</strong> como herramienta de desarrollo.
+            </p>
 
-    </section>
+        </section>
 
 
-    <!-- =========================================
-         INFORMACIÓN DEL PROYECTO
-    ========================================== -->
+        <!-- ================= CONTADOR ================= -->
 
-    <section class="seccion">
+        <section class="contador-visitas">
 
-        <h2>📋 Información del proyecto</h2>
+            <div class="contador-icono">
+                👥
+            </div>
 
-        <div class="datos-proyecto">
+            <h2>Personas que han ingresado</h2>
 
-            <div class="dato">
-                <strong>Programa</strong>
+            <p class="contador-descripcion">
+                Número de personas que han iniciado sesión
+                durante nuestra demostración.
+            </p>
+
+            <div id="numeroVisitas">
+                0
+            </div>
+
+            <p class="contador-final">
+                🎉 ¡Gracias por jugar con nosotros!
+            </p>
+
+            <!-- BOTÓN PARA REINICIAR -->
+
+            <button
+                class="btn-reiniciar"
+                onclick="reiniciarContador()">
+
+                🔄 Reiniciar contador
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= INFORMACIÓN DEL PROYECTO ================= -->
+
+        <section class="info-section">
+
+            <h2>🎯 ¿Qué es GameZone?</h2>
+
+            <p>
+                GameZone SENA es un aplicativo web diseñado como proyecto
+                de formación del programa de <strong>Programación de Software</strong>.
+            </p>
+
+            <p>
+                La plataforma permite que los usuarios ingresen mediante
+                un sistema de Login y posteriormente accedan a un Dashboard
+                donde pueden seleccionar diferentes juegos.
+            </p>
+
+            <p>
+                Nuestro objetivo es combinar la programación con el
+                entretenimiento, creando una página sencilla, llamativa
+                y fácil de utilizar.
+            </p>
+
+        </section>
+
+
+        <!-- ================= OBJETIVO ================= -->
+
+        <section class="info-section">
+
+            <h2>🚀 Objetivo del proyecto</h2>
+
+            <p>
+                Desarrollar una plataforma web interactiva que permita a
+                los usuarios disfrutar diferentes juegos mientras se
+                aplican conceptos fundamentales del desarrollo web.
+            </p>
+
+            <div class="objetivos-grid">
+
+                <div class="objetivo-card">
+                    <span>💻</span>
+                    <h3>Programación</h3>
+                    <p>
+                        Aplicar conocimientos de HTML, CSS y JavaScript.
+                    </p>
+                </div>
+
+                <div class="objetivo-card">
+                    <span>🎮</span>
+                    <h3>Entretenimiento</h3>
+                    <p>
+                        Crear juegos sencillos y divertidos.
+                    </p>
+                </div>
+
+                <div class="objetivo-card">
+                    <span>🎨</span>
+                    <h3>Diseño</h3>
+                    <p>
+                        Crear una interfaz agradable y fácil de utilizar.
+                    </p>
+                </div>
+
+                <div class="objetivo-card">
+                    <span>🤝</span>
+                    <h3>Trabajo en equipo</h3>
+                    <p>
+                        Desarrollar el proyecto colaborativamente.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= JUEGOS ================= -->
+
+        <section class="info-section">
+
+            <h2>🎮 Juegos disponibles</h2>
+
+            <p class="texto-centro">
+                GameZone cuenta con cinco juegos diferentes:
+            </p>
+
+            <div class="juegos-info">
+
+                <div class="juego-info-card">
+                    <span>🎯</span>
+                    <h3>El Ahorcado</h3>
+                    <p>
+                        Adivina la palabra teniendo en cuenta su categoría
+                        y evitando cometer demasiados errores.
+                    </p>
+                </div>
+
+                <div class="juego-info-card">
+                    <span>✊</span>
+                    <h3>Piedra, Papel o Tijera</h3>
+                    <p>
+                        El jugador se enfrenta contra la computadora
+                        y debe elegir una de las tres opciones.
+                    </p>
+                </div>
+
+                <div class="juego-info-card">
+                    <span>⭕</span>
+                    <h3>Tres en Raya</h3>
+                    <p>
+                        Juego para formar una línea de tres símbolos
+                        en un tablero de 3 × 3.
+                    </p>
+                </div>
+
+                <div class="juego-info-card">
+                    <span>🧠</span>
+                    <h3>Trivia de Preguntas</h3>
+                    <p>
+                        Responde diferentes preguntas y consigue
+                        la mayor cantidad de puntos posible.
+                    </p>
+                </div>
+
+                <div class="juego-info-card">
+                    <span>🃏</span>
+                    <h3>Juego de Memoria</h3>
+                    <p>
+                        Encuentra todas las parejas de cartas
+                        utilizando tu memoria.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TECNOLOGÍAS ================= -->
+
+        <section class="info-section">
+
+            <h2>💻 Tecnologías utilizadas</h2>
+
+            <div class="tecnologias">
+
+                <div>
+                    <span>🌐</span>
+                    <strong>HTML</strong>
+                    <p>
+                        Se utilizó para crear la estructura
+                        de las páginas.
+                    </p>
+                </div>
+
+                <div>
+                    <span>🎨</span>
+                    <strong>CSS</strong>
+                    <p>
+                        Se utilizó para los estilos,
+                        colores y diseño.
+                    </p>
+                </div>
+
+                <div>
+                    <span>⚙️</span>
+                    <strong>JavaScript</strong>
+                    <p>
+                        Se utilizó para la lógica
+                        y funcionamiento de los juegos.
+                    </p>
+                </div>
+
+                <div>
+                    <span>💻</span>
+                    <strong>Visual Studio Code</strong>
+                    <p>
+                        Herramienta utilizada para
+                        desarrollar el proyecto.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTEGRANTES ================= -->
+
+        <section class="info-section">
+
+            <h2>👥 Nuestro equipo</h2>
+
+            <p class="texto-centro">
+                Integrantes y responsabilidades durante la exposición:
+            </p>
+
+            <div class="integrantes">
+
+                <div class="integrante">
+                    <div class="integrante-icono">👩‍💻</div>
+
+                    <h3>Diana Torres</h3>
+
+                    <p>
+                        Presentación del proyecto,
+                        planteamiento del problema y Login.
+                    </p>
+                </div>
+
+
+                <div class="integrante">
+                    <div class="integrante-icono">👨‍💻</div>
+
+                    <h3>Jasiel Sarmiento</h3>
+
+                    <p>
+                        Dashboard y navegación
+                        de la aplicación.
+                    </p>
+                </div>
+
+
+                <div class="integrante">
+                    <div class="integrante-icono">👩‍🎨</div>
+
+                    <h3>Valeria Rosales</h3>
+
+                    <p>
+                        HTML, CSS, diseño y
+                        Visual Studio Code.
+                    </p>
+                </div>
+
+
+                <div class="integrante">
+                    <div class="integrante-icono">👨‍💻</div>
+
+                    <h3>Santiago Zambrano</h3>
+
+                    <p>
+                        Juegos y lógica
+                        de JavaScript.
+                    </p>
+                </div>
+
+
+                <div class="integrante">
+                    <div class="integrante-icono">👩‍💻</div>
+
+                    <h3>Sharith Vazquez</h3>
+
+                    <p>
+                        Trivia, Memoria,
+                        Acerca de y conclusión.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HABILIDADES ================= -->
+
+        <section class="info-section">
+
+            <h2>⭐ Habilidades desarrolladas</h2>
+
+            <div class="habilidades">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Diseño web</span>
+                <span>Lógica de programación</span>
+                <span>Visual Studio Code</span>
+                <span>Trabajo en equipo</span>
+                <span>Creatividad</span>
+                <span>Desarrollo de videojuegos</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DATOS ================= -->
+
+        <section class="datos-proyecto">
+
+            <div>
+                <strong>📚 Programa</strong>
                 <span>Programación de Software</span>
             </div>
 
-            <div class="dato">
-                <strong>Ficha</strong>
+            <div>
+                <strong>🔢 Ficha</strong>
                 <span>3180844</span>
             </div>
 
-            <div class="dato">
-                <strong>Instructor</strong>
-                <span>Aura Ojeda</span>
-            </div>
-
-            <div class="dato">
-                <strong>Proyecto</strong>
+            <div>
+                <strong>🎮 Proyecto</strong>
                 <span>GameZone SENA</span>
             </div>
 
-        </div>
-
-    </section>
-
-
-<!-- =========================================
-     INTEGRANTES 
-========================================= -->
-
-<section class="seccion">
-
-    <h2>👥 Integrantes y participación</h2>
-
-    <p>
-        Cada integrante del grupo tiene una parte específica
-        del proyecto para explicar durante la exposición.
-    </p>
-
-    <div class="integrantes">
-
-        <!-- DIANA -->
-
-        <div class="integrante">
-
-            <div class="avatar">
-                👩🏻‍💻
+            <div>
+                <strong>📅 Año</strong>
+                <span>2026</span>
             </div>
 
-            <h3>
-                Diana Torres
-            </h3>
+        </section>
 
-            <p>
-                <strong>Presentación del proyecto</strong>
-                <br><br>
 
-                • Planteamiento del proyecto
-                <br>
-                • Página de inicio de sesión
-                <br>
-                • Funcionamiento del Login
-                <br>
-                • HTML del Login
-                <br>
-                • JavaScript del Login
-            </p>
+        <!-- VOLVER -->
 
-        </div>
+        <a href="dashboard.html" class="btn-principal">
+            🎮 Volver a los juegos
+        </a>
 
+    </main>
 
-        <!-- JASIEL -->
 
-        <div class="integrante">
+    <!-- ================= FOOTER ================= -->
 
-            <div class="avatar">
-                👨🏻‍💻
-            </div>
+    <footer>
 
-            <h3>
-                Jasiel Sarmiento
-            </h3>
+        GameZone SENA © 2026
 
-            <p>
-                <strong>Dashboard y navegación</strong>
-                <br><br>
+        <br>
 
-                • Página principal
-                <br>
-                • Dashboard
-                <br>
-                • Menú de navegación
-                <br>
-                • Botón Inicio
-                <br>
-                • Botón Salir
-                <br>
-                • Conexión entre páginas
-            </p>
-
-        </div>
-
-
-        <!-- VALERIA -->
-
-        <div class="integrante">
-
-            <div class="avatar">
-                👩🏻‍💻
-            </div>
-
-            <h3>
-                Valeria Rosales
-            </h3>
-
-            <p>
-                <strong>Diseño y tecnologías</strong>
-                <br><br>
-
-                • HTML
-                <br>
-                • CSS
-                <br>
-                • Diseño de la interfaz
-                <br>
-                • Colores y estilos
-                <br>
-                • Visual Studio Code
-                <br>
-                • Organización de archivos
-            </p>
-
-        </div>
-
-
-        <!-- SANTIAGO -->
-
-        <div class="integrante">
-
-            <div class="avatar">
-                👨🏻‍💻
-            </div>
-
-            <h3>
-                Santiago Zambrano
-            </h3>
-
-            <p>
-                <strong>Juegos y JavaScript</strong>
-                <br><br>
-
-                • El Ahorcado
-                <br>
-                • Piedra, Papel o Tijera
-                <br>
-                • Tres en Raya
-                <br>
-                • Lógica de los juegos
-                <br>
-                • Variables y funciones
-                <br>
-                • Condiciones y eventos
-            </p>
-
-        </div>
-
-
-        <!-- SHARITH -->
-
-        <div class="integrante">
-
-            <div class="avatar">
-                👩🏻‍💻
-            </div>
-
-            <h3>
-                Sharith Vazquez
-            </h3>
-
-            <p>
-                <strong>Trivia, Memoria y Acerca de</strong>
-                <br><br>
-
-                • Trivia de preguntas
-                <br>
-                • Juego de Memoria
-                <br>
-                • Página Acerca de
-                <br>
-                • Integrantes del grupo
-                <br>
-                • Habilidades desarrolladas
-                <br>
-                • Conclusiones del proyecto
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-    <!-- =========================================
-         JUEGOS
-    ========================================== -->
-
-    <section class="seccion">
-
-        <h2>🎮 Nuestros juegos</h2>
-
-        <p>
-            GameZone SENA cuenta con cinco juegos
-            interactivos.
-        </p>
-
-        <div class="juegos">
-
-            <div class="juego-card">
-
-                <div class="emoji">
-                    🎯
-                </div>
-
-                <h3>El Ahorcado</h3>
-
-                <p>
-                    Adivina la palabra antes de
-                    quedarte sin vidas.
-                </p>
-
-            </div>
-
-
-            <div class="juego-card">
-
-                <div class="emoji">
-                    ✊
-                </div>
-
-                <h3>Piedra, Papel o Tijera</h3>
-
-                <p>
-                    Compite contra la computadora
-                    y descubre quién gana.
-                </p>
-
-            </div>
-
-
-            <div class="juego-card">
-
-                <div class="emoji">
-                    ❌⭕
-                </div>
-
-                <h3>Tres en Raya</h3>
-
-                <p>
-                    Forma una línea de tres símbolos
-                    para ganar la partida.
-                </p>
-
-            </div>
-
-
-            <div class="juego-card">
-
-                <div class="emoji">
-                    🧠
-                </div>
-
-                <h3>Trivia</h3>
-
-                <p>
-                    Responde diferentes preguntas
-                    y demuestra tus conocimientos.
-                </p>
-
-            </div>
-
-
-            <div class="juego-card">
-
-                <div class="emoji">
-                    🃏
-                </div>
-
-                <h3>Juego de Memoria</h3>
-
-                <p>
-                    Encuentra las parejas de cartas
-                    iguales.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         HABILIDADES DESARROLLADAS
-    ========================================== -->
-
-    <section class="seccion">
-
-        <h2>🧠 Habilidades desarrolladas</h2>
-
-        <p>
-            Durante la creación de GameZone SENA
-            desarrollamos habilidades técnicas y personales
-            que nos ayudaron a construir nuestro proyecto.
-        </p>
-
-        <div class="habilidades">
-
-            <!-- PROGRAMACIÓN -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    💻
-                </div>
-
-                <h3>
-                    Programación
-                </h3>
-
-                <p>
-                    Aprendimos a utilizar HTML, CSS y
-                    JavaScript para crear páginas web
-                    y juegos interactivos.
-                </p>
-
-            </div>
-
-
-            <!-- DISEÑO -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🎨
-                </div>
-
-                <h3>
-                    Diseño web
-                </h3>
-
-                <p>
-                    Aprendimos a crear interfaces atractivas
-                    utilizando colores, botones, animaciones
-                    y diferentes estilos.
-                </p>
-
-            </div>
-
-
-            <!-- LÓGICA -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🧠
-                </div>
-
-                <h3>
-                    Lógica de programación
-                </h3>
-
-                <p>
-                    Utilizamos variables, funciones,
-                    condiciones y eventos para crear
-                    las reglas de los juegos.
-                </p>
-
-            </div>
-
-
-            <!-- RESOLUCIÓN -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🔧
-                </div>
-
-                <h3>
-                    Resolución de problemas
-                </h3>
-
-                <p>
-                    Aprendimos a identificar errores
-                    en el código y buscar soluciones
-                    para mejorar el proyecto.
-                </p>
-
-            </div>
-
-
-            <!-- TRABAJO EN EQUIPO -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🤝
-                </div>
-
-                <h3>
-                    Trabajo en equipo
-                </h3>
-
-                <p>
-                    Organizamos las actividades y
-                    trabajamos conjuntamente para
-                    desarrollar el proyecto.
-                </p>
-
-            </div>
-
-
-            <!-- CREATIVIDAD -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    ✨
-                </div>
-
-                <h3>
-                    Creatividad
-                </h3>
-
-                <p>
-                    Diseñamos la apariencia de los juegos
-                    y buscamos ideas para ofrecer una
-                    experiencia atractiva.
-                </p>
-
-            </div>
-
-
-            <!-- VISUAL STUDIO -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🖥️
-                </div>
-
-                <h3>
-                    Visual Studio Code
-                </h3>
-
-                <p>
-                    Aprendimos a crear, organizar, editar
-                    y probar nuestros archivos utilizando
-                    Visual Studio Code.
-                </p>
-
-            </div>
-
-
-            <!-- DESARROLLO DE JUEGOS -->
-
-            <div class="habilidad">
-
-                <div class="icono">
-                    🎮
-                </div>
-
-                <h3>
-                    Desarrollo de juegos
-                </h3>
-
-                <p>
-                    Aplicamos nuestros conocimientos para
-                    desarrollar los cinco juegos de
-                    GameZone SENA.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         QUÉ APRENDIMOS
-    ========================================== -->
-
-    <section class="seccion">
-
-        <h2>📚 ¿Qué aprendimos?</h2>
-
-        <p>
-            Con este proyecto aprendimos que desarrollar
-            una aplicación no consiste solamente en escribir
-            código. También es necesario planificar, diseñar,
-            trabajar en equipo, probar cada función,
-            solucionar errores y pensar en la experiencia
-            del usuario.
-        </p>
-
-        <div class="objetivo-box">
-
-            <p>
-                <strong>💡 Nuestro aprendizaje:</strong>
-                logramos aplicar nuestros conocimientos
-                de programación en un proyecto práctico,
-                fortaleciendo nuestras habilidades técnicas,
-                nuestra creatividad y nuestra capacidad
-                para trabajar en equipo.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="footer-acerca">
-
-        <strong>
-            🎮 GameZone 
-        </strong>
-
-        <p>
-            Proyecto Productivo | Programación de Software 3180844
-        </p>
-
-        <p>
-            © 2026 - Grupo GameZone
-        </p>
+        Programación de Software | Ficha 3180844
 
     </footer>
 
-</div>
+
+    <!-- ================= JAVASCRIPT DEL CONTADOR ================= -->
+
+    <script>
+
+        function mostrarContador() {
+
+            let visitas = localStorage.getItem("visitas");
+
+            if (visitas === null) {
+                visitas = 0;
+            }
+
+            document.getElementById("numeroVisitas").textContent = visitas;
+
+        }
+
+
+        function reiniciarContador() {
+
+            let confirmar = confirm(
+                "¿Estás segura de que quieres reiniciar el contador?"
+            );
+
+            if (confirmar) {
+
+                localStorage.setItem("visitas", 0);
+
+                mostrarContador();
+
+                alert("✅ El contador ha sido reiniciado.");
+
+            }
+
+        }
+
+
+        // Mostrar el número al abrir Acerca de
+        mostrarContador();
+
+    </script>
 
 </body>
 </html>
