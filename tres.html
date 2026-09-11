@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">🎮 GameZone</div>
+
+    <nav>
+        <a href="dashboard.html">Inicio</a>
+        <a href="acerca.html">Acerca de</a>
+    </nav>
+
+</header>
+
+
+<main class="game-page">
+
+    <h1>⭕ Tres en Raya ❌</h1>
+
+    <p id="turno">
+        Turno del jugador ❌
+    </p>
+
+    <div class="tablero">
+
+        <button onclick="jugar(0)"></button>
+        <button onclick="jugar(1)"></button>
+        <button onclick="jugar(2)"></button>
+
+        <button onclick="jugar(3)"></button>
+        <button onclick="jugar(4)"></button>
+        <button onclick="jugar(5)"></button>
+
+        <button onclick="jugar(6)"></button>
+        <button onclick="jugar(7)"></button>
+        <button onclick="jugar(8)"></button>
+
+    </div>
+
+    <h2 id="mensaje"></h2>
+
+    <button onclick="reiniciar()" class="btn-principal">
+        🔄 Reiniciar
+    </button>
+
+    <br><br>
+
+    <a href="dashboard.html" class="btn-secundario">
+        ⬅ Volver
+    </a>
+
+</main>
+
+
+<script>
+
+let tablero = [
+    "", "", "",
+    "", "", "",
+    "", "", ""
+];
+
+let jugador = "❌";
+let terminado = false;
+
+
+const botones =
+    document.querySelectorAll(".tablero button");
+
+
+function jugar(posicion){
+
+    if(
+        tablero[posicion] !== "" ||
+        terminado
+    ){
+        return;
+    }
+
+
+    tablero[posicion] = jugador;
+
+    botones[posicion].textContent = jugador;
+
+
+    if(verificarGanador()){
+
+        document.getElementById("mensaje").textContent =
+            "🎉 ¡Ganó el jugador " + jugador + "!";
+
+        terminado = true;
+
+        return;
+    }
+
+
+    if(!tablero.includes("")){
+
+        document.getElementById("mensaje").textContent =
+            "🤝 ¡Empate!";
+
+        terminado = true;
+
+        return;
+    }
+
+
+    jugador =
+        jugador === "❌" ? "⭕" : "❌";
+
+
+    document.getElementById("turno").textContent =
+        "Turno del jugador " + jugador;
+
+}
+
+
+function verificarGanador(){
+
+    const combinaciones = [
+
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+
+        [0,4,8],
+        [2,4,6]
+
+    ];
+
+
+    return combinaciones.some(combinacion => {
+
+        const [a,b,c] = combinacion;
+
+        return tablero[a] !== "" &&
+            tablero[a] === tablero[b] &&
+            tablero[a] === tablero[c];
+
+    });
+
+}
+
+
+function reiniciar(){
+
+    tablero = [
+        "", "", "",
+        "", "", "",
+        "", "", ""
+    ];
+
+    jugador = "❌";
+
+    terminado = false;
+
+
+    botones.forEach(boton => {
+
+        boton.textContent = "";
+
+    });
+
+
+    document.getElementById("turno").textContent =
+        "Turno del jugador ❌";
+
+    document.getElementById("mensaje").textContent = "";
+
+}
+
+</script>
+
+</body>
+</html>
