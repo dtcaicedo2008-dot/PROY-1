@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>El Ahorcado - GameZone SENA</title>
 
@@ -39,29 +37,25 @@
 </header>
 
 
-
 <main class="game-page ahorcado-page">
 
-
-    <!-- TÍTULO -->
 
     <div class="titulo-juego">
 
         <span>🎯</span>
 
-        <h1>¡Adivina la palabra!</h1>
+        <h1>El Ahorcado</h1>
 
-        <span>✨</span>
+        <span>⚡</span>
 
     </div>
 
 
     <p class="subtitulo-ahorcado">
 
-        ¡No te preocupes! Tienes pistas para ayudarte. 💜
+        Adivina la palabra usando las pistas.
 
     </p>
-
 
 
     <!-- INFORMACIÓN -->
@@ -72,12 +66,10 @@
 
             📚
 
-            <strong>
-                Categoría
-            </strong>
+            <strong>Categoría</strong>
 
             <span id="categoria">
-                Animales
+                Tecnología
             </span>
 
         </div>
@@ -87,9 +79,7 @@
 
             💡
 
-            <strong>
-                Pista
-            </strong>
+            <strong>Pista</strong>
 
             <span id="pista">
                 Pista
@@ -106,58 +96,52 @@
     <div class="personaje-ahorcado">
 
         <div class="nube">
-            ☁️ ☁️
+            ☁️
         </div>
 
 
-        <div
-            id="parte1"
-            class="parte-personaje cabeza">
+        <div id="parte1"
+             class="parte-personaje cabeza">
 
-            😊
+            😐
 
         </div>
 
 
-        <div
-            id="parte2"
-            class="parte-personaje cuerpo">
+        <div id="parte2"
+             class="parte-personaje cuerpo">
 
             👕
             
         </div>
 
 
-        <div
-            id="parte3"
-            class="parte-personaje brazo-izq">
+        <div id="parte3"
+             class="parte-personaje brazo-izq">
 
-            🤚
-
-        </div>
-
-
-        <div
-            id="parte4"
-            class="parte-personaje brazo-der">
-
-            ✋
+            💪
 
         </div>
 
 
-        <div
-            id="parte5"
-            class="parte-personaje pierna-izq">
+        <div id="parte4"
+             class="parte-personaje brazo-der">
+
+            💪
+
+        </div>
+
+
+        <div id="parte5"
+             class="parte-personaje pierna-izq">
 
             🦵
 
         </div>
 
 
-        <div
-            id="parte6"
-            class="parte-personaje pierna-der">
+        <div id="parte6"
+             class="parte-personaje pierna-der">
 
             🦵
 
@@ -165,7 +149,9 @@
 
 
         <div class="suelo">
-            🌱🌱🌱🌱🌱
+
+            ━━━━━━━━━
+
         </div>
 
     </div>
@@ -190,26 +176,24 @@
 
     <!-- PALABRA -->
 
-    <div
-        id="palabra"
-        class="palabra-ahorcado">
+    <div id="palabra"
+         class="palabra-ahorcado">
 
     </div>
+
+
+    <p class="elige-letra">
+
+        👆 Selecciona una letra
+
+    </p>
 
 
 
     <!-- LETRAS -->
 
-    <p class="elige-letra">
-
-        👆 Elige una letra
-
-    </p>
-
-
-    <div
-        id="letras"
-        class="letras letras-bonitas">
+    <div id="letras"
+         class="letras letras-bonitas">
 
     </div>
 
@@ -217,31 +201,29 @@
 
     <!-- MENSAJE -->
 
-    <div
-        id="mensajeJuego"
-        class="mensaje-ahorcado">
+    <div id="mensajeJuego"
+         class="mensaje-ahorcado">
 
     </div>
 
 
 
-    <!-- NUEVO JUEGO -->
+    <!-- BOTÓN -->
 
-    <button
-        onclick="nuevoJuego()"
-        class="btn-principal">
+    <button onclick="nuevoJuego()"
+            class="btn-principal">
 
         🔄 Nueva palabra
 
     </button>
 
 
-    <br><br>
+    <br>
+    <br>
 
 
-    <a
-        href="dashboard.html"
-        class="btn-secundario">
+    <a href="dashboard.html"
+       class="btn-secundario">
 
         ⬅ Volver a los juegos
 
@@ -255,100 +237,96 @@
 <script>
 
 
-/* =====================================
-   PALABRAS PARA NIÑOS
-===================================== */
-
 const palabras = [
 
     {
-        palabra: "GATO",
-        categoria: "🐾 Animales",
-        pista: "Es un animal que dice miau."
+        palabra: "JAVASCRIPT",
+        categoria: "💻 Tecnología",
+        pista: "Lenguaje utilizado para darle interacción a las páginas web."
     },
 
     {
-        palabra: "PERRO",
-        categoria: "🐾 Animales",
-        pista: "Es el mejor amigo del ser humano."
+        palabra: "COMPUTADOR",
+        categoria: "💻 Tecnología",
+        pista: "Dispositivo que utilizamos para estudiar, trabajar y jugar."
     },
 
     {
-        palabra: "LEON",
-        categoria: "🐾 Animales",
-        pista: "Es conocido como el rey de la selva."
+        palabra: "VIDEOJUEGO",
+        categoria: "🎮 Entretenimiento",
+        pista: "Juego electrónico que puede jugarse en una consola o computador."
     },
 
     {
-        palabra: "CONEJO",
-        categoria: "🐾 Animales",
-        pista: "Tiene orejas largas y le gustan las zanahorias."
+        palabra: "FUTBOL",
+        categoria: "⚽ Deportes",
+        pista: "Deporte en el que dos equipos intentan marcar goles."
     },
 
     {
-        palabra: "MARIPOSA",
-        categoria: "🦋 Naturaleza",
-        pista: "Tiene alas de muchos colores."
+        palabra: "BALONCESTO",
+        categoria: "🏀 Deportes",
+        pista: "Deporte en el que los jugadores intentan encestar el balón."
+    },
+
+    {
+        palabra: "MURCIELAGO",
+        categoria: "🐾 Animales",
+        pista: "Mamífero que puede volar y suele salir durante la noche."
+    },
+
+    {
+        palabra: "DELFIN",
+        categoria: "🐬 Animales",
+        pista: "Animal marino conocido por ser muy inteligente."
+    },
+
+    {
+        palabra: "ELEFANTE",
+        categoria: "🐘 Animales",
+        pista: "Animal terrestre muy grande que tiene una trompa."
+    },
+
+    {
+        palabra: "VOLCAN",
+        categoria: "🌋 Naturaleza",
+        pista: "Puede expulsar lava, cenizas y gases."
     },
 
     {
         palabra: "ARCOIRIS",
         categoria: "🌈 Naturaleza",
-        pista: "Aparece en el cielo después de la lluvia."
+        pista: "Fenómeno que puede aparecer en el cielo después de la lluvia."
     },
 
     {
-        palabra: "SOL",
-        categoria: "☀️ Naturaleza",
-        pista: "Nos da luz y calor durante el día."
+        palabra: "PLANETA",
+        categoria: "🚀 Espacio",
+        pista: "Cuerpo celeste que gira alrededor de una estrella."
     },
 
     {
-        palabra: "MANZANA",
-        categoria: "🍎 Frutas",
-        pista: "Es una fruta que puede ser roja, verde o amarilla."
+        palabra: "ASTRONAUTA",
+        categoria: "🚀 Espacio",
+        pista: "Persona preparada para viajar al espacio."
     },
 
     {
-        palabra: "BANANO",
-        categoria: "🍌 Frutas",
-        pista: "Es una fruta amarilla que se pela antes de comer."
+        palabra: "MUSICA",
+        categoria: "🎵 Arte",
+        pista: "Puede escucharse con instrumentos o mediante la voz."
     },
 
     {
-        palabra: "PIZZA",
-        categoria: "🍕 Comida",
-        pista: "Tiene una masa redonda y puede llevar queso."
+        palabra: "PELICULA",
+        categoria: "🎬 Entretenimiento",
+        pista: "Historia que podemos ver en una pantalla."
     },
 
     {
-        palabra: "HELADO",
-        categoria: "🍦 Comida",
-        pista: "Es frío, dulce y tiene muchos sabores."
-    },
-
-    {
-        palabra: "PELOTA",
-        categoria: "⚽ Juegos",
-        pista: "Es redonda y se utiliza para jugar."
-    },
-
-    {
-        palabra: "ESCUELA",
-        categoria: "📚 Lugares",
-        pista: "Es el lugar donde aprendemos y estudiamos."
-    },
-
-    {
-        palabra: "AMIGO",
-        categoria: "❤️ Personas",
-        pista: "Es una persona con quien compartimos y nos divertimos."
-    },
-
-    {
-        palabra: "ESTRELLA",
-        categoria: "🌌 Espacio",
-        pista: "Brilla en el cielo durante la noche."
+        palabra: "AMISTAD",
+        categoria: "❤️ Valores",
+        pista: "Relación entre personas que se tienen cariño y confianza."
     }
 
 ];
@@ -356,82 +334,49 @@ const palabras = [
 
 let palabraActual;
 
-let categoriaActual;
-
-let pistaActual;
-
 let letrasCorrectas = [];
 
 let errores = 0;
 
 
 
-/* =====================================
-   NUEVO JUEGO
-===================================== */
+function nuevoJuego() {
 
-function nuevoJuego(){
 
     const seleccion =
-        palabras[
-            Math.floor(
-                Math.random() *
-                palabras.length
-            )
-        ];
+        palabras[Math.floor(Math.random() * palabras.length)];
 
 
     palabraActual =
         seleccion.palabra;
 
 
-    categoriaActual =
-        seleccion.categoria;
-
-
-    pistaActual =
-        seleccion.pista;
-
-
     letrasCorrectas = [];
+
 
     errores = 0;
 
 
-    document.getElementById(
-        "categoria"
-    ).textContent =
-        categoriaActual;
+    document.getElementById("categoria").textContent =
+        seleccion.categoria;
 
 
-    document.getElementById(
-        "pista"
-    ).textContent =
-        pistaActual;
+    document.getElementById("pista").textContent =
+        seleccion.pista;
 
 
-    document.getElementById(
-        "errores"
-    ).textContent =
+    document.getElementById("errores").textContent =
         "0";
 
 
-    document.getElementById(
-        "mensajeJuego"
-    ).textContent =
+    document.getElementById("mensajeJuego").textContent =
         "";
 
 
-    for(
-        let i = 1;
-        i <= 6;
-        i++
-    ){
+    for (let i = 1; i <= 6; i++) {
 
-        document.getElementById(
-            "parte" + i
-        ).style.display =
-            "none";
+        document.getElementById("parte" + i)
+            .style.display = "none";
 
     }
 
@@ -444,54 +389,38 @@ function nuevoJuego(){
 
 
 
-/* =====================================
-   MOSTRAR PALABRA
-===================================== */
+function mostrarPalabra() {
 
-function mostrarPalabra(){
 
     let resultado = "";
 
 
-    for(
-        let letra of palabraActual
-    ){
+    for (let letra of palabraActual) {
 
-        if(
-            letrasCorrectas.includes(
-                letra
-            )
-        ){
 
-            resultado +=
-                letra + " ";
+        if (letrasCorrectas.includes(letra)) {
 
-        }
+            resultado += letra + " ";
 
-        else{
+        } else {
 
-            resultado +=
-                "_ ";
+            resultado += "_ ";
 
         }
 
     }
 
 
-    document.getElementById(
-        "palabra"
-    ).textContent =
+    document.getElementById("palabra").textContent =
         resultado;
 
 
-    if(
-        !resultado.includes("_")
-    ){
+    if (!resultado.includes("_")) {
 
-        document.getElementById(
-            "mensajeJuego"
-        ).textContent =
-            "🎉 ¡GANASTE! ¡Eres increíble! ⭐";
+
+        document.getElementById("mensajeJuego").textContent =
+            "🎉 ¡GANASTE! ¡Muy bien!";
+
 
         desactivarLetras();
 
@@ -501,16 +430,11 @@ function mostrarPalabra(){
 
 
 
-/* =====================================
-   CREAR LETRAS
-===================================== */
+function crearLetras() {
 
-function crearLetras(){
 
     const contenedor =
-        document.getElementById(
-            "letras"
-        );
+        document.getElementById("letras");
 
 
     contenedor.innerHTML = "";
@@ -520,34 +444,25 @@ function crearLetras(){
         "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 
 
-    for(
-        let letra of letras
-    ){
+    for (let letra of letras) {
 
-        let boton =
-            document.createElement(
-                "button"
-            );
+
+        const boton =
+            document.createElement("button");
 
 
         boton.textContent =
             letra;
 
 
-        boton.onclick =
-            function(){
+        boton.onclick = function() {
 
-                comprobarLetra(
-                    letra,
-                    boton
-                );
+            comprobarLetra(letra, boton);
 
-            };
+        };
 
 
-        contenedor.appendChild(
-            boton
-        );
+        contenedor.appendChild(boton);
 
     }
 
@@ -555,27 +470,16 @@ function crearLetras(){
 
 
 
-/* =====================================
-   COMPROBAR LETRA
-===================================== */
+function comprobarLetra(letra, boton) {
 
-function comprobarLetra(
-    letra,
-    boton
-){
 
     boton.disabled = true;
 
 
-    if(
-        palabraActual.includes(
-            letra
-        )
-    ){
+    if (palabraActual.includes(letra)) {
 
-        letrasCorrectas.push(
-            letra
-        );
+
+        letrasCorrectas.push(letra);
 
 
         boton.classList.add(
@@ -585,9 +489,9 @@ function comprobarLetra(
 
         mostrarPalabra();
 
-    }
 
-    else{
+    } else {
+
 
         boton.classList.add(
             "letra-incorrecta"
@@ -597,28 +501,21 @@ function comprobarLetra(
         errores++;
 
 
-        document.getElementById(
-            "errores"
-        ).textContent =
+        document.getElementById("errores").textContent =
             errores;
 
 
-        document.getElementById(
-            "parte" + errores
-        ).style.display =
-            "block";
+        document.getElementById("parte" + errores)
+            .style.display = "block";
 
 
-        if(
-            errores >= 6
-        ){
+        if (errores >= 6) {
 
-            document.getElementById(
-                "mensajeJuego"
-            ).textContent =
-                "💜 ¡No pasa nada! La palabra era: " +
+
+            document.getElementById("mensajeJuego").textContent =
+                "💡 La palabra era: " +
                 palabraActual +
-                " 😊";
+                ". ¡Inténtalo otra vez!";
 
 
             desactivarLetras();
@@ -631,11 +528,8 @@ function comprobarLetra(
 
 
 
-/* =====================================
-   DESACTIVAR LETRAS
-===================================== */
+function desactivarLetras() {
 
-function desactivarLetras(){
 
     const botones =
         document.querySelectorAll(
@@ -643,13 +537,11 @@ function desactivarLetras(){
         );
 
 
-    botones.forEach(
-        boton => {
+    botones.forEach(function(boton) {
 
-            boton.disabled = true;
+        boton.disabled = true;
 
-        }
-    );
+    });
 
 }
 

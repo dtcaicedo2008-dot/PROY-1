@@ -3,117 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Trivia Infantil - GameZone SENA</title>
-
+    <title>Trivia - GameZone SENA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="header">
-
-    <div class="logo">
-        🎮 GameZone SENA
-    </div>
+    <div class="logo">🎮 GameZone SENA</div>
 
     <nav>
         <a href="dashboard.html">Inicio</a>
         <a href="acerca.html">Acerca de</a>
     </nav>
-
 </header>
-
 
 <main class="game-page trivia-page">
 
     <div class="titulo-juego">
-
         <span>🧠</span>
-
-        <h1>Trivia Divertida</h1>
-
-        <span>⭐</span>
-
+        <h1>Trivia Challenge</h1>
+        <span>⚡</span>
     </div>
 
     <p class="subtitulo-trivia">
-        ¡Responde las preguntas y demuestra cuánto sabes! 🌈
+        Pon a prueba tus conocimientos y consigue la mayor cantidad de puntos.
     </p>
 
-
-    <!-- PROGRESO -->
-
     <div class="progreso">
-
-        <span id="numeroPregunta">
-            Pregunta 1 de 10
-        </span>
-
+        <span id="numeroPregunta">Pregunta 1 de 10</span>
     </div>
-
-
-    <!-- CAJA DE PREGUNTA -->
 
     <div class="trivia-box">
 
-        <div class="personaje-trivia">
-            🧒
-        </div>
+        <div class="personaje-trivia">🎮</div>
 
-        <h2 id="pregunta">
-            Pregunta
-        </h2>
+        <h2 id="pregunta">Pregunta</h2>
 
-        <div id="respuestas">
-        </div>
+        <div id="respuestas"></div>
 
         <p id="resultadoTrivia"></p>
 
     </div>
 
-
-    <!-- PUNTAJE -->
-
     <div class="puntaje-trivia">
-
-        ⭐ Puntos:
-        <strong id="puntaje">
-            0
-        </strong>
-
+        ⚡ Puntos: <strong id="puntaje">0</strong>
     </div>
 
+    <br>
 
-    <button
-        id="siguiente"
-        onclick="siguientePregunta()"
-        class="btn-principal"
-        style="display:none;">
-
+    <button id="siguiente"
+            onclick="siguientePregunta()"
+            class="btn-principal"
+            style="display:none;">
         Siguiente ➡️
-
     </button>
-
 
     <div id="finalTrivia" style="display:none;">
 
-        <h2>🎉 ¡Terminaste la Trivia!</h2>
+        <div class="trivia-box">
 
-        <p id="resultadoFinal"></p>
+            <div class="personaje-trivia">🏆</div>
 
-        <button
-            onclick="reiniciarTrivia()"
-            class="btn-principal">
+            <h2>¡Trivia terminada!</h2>
 
-            🔄 Jugar otra vez
+            <p id="resultadoFinal"></p>
 
-        </button>
+            <button onclick="reiniciarTrivia()" class="btn-principal">
+                🔄 Jugar otra vez
+            </button>
+
+        </div>
 
     </div>
 
-
-    <br>
+    <br><br>
 
     <a href="dashboard.html" class="btn-secundario">
         ⬅ Volver a los juegos
@@ -124,120 +88,66 @@
 
 <script>
 
-/* =====================================
-   PREGUNTAS PARA NIÑOS
-===================================== */
-
 const preguntas = [
 
     {
-        pregunta: "🐶 ¿Qué animal hace 'guau guau'?",
-        respuestas: [
-            "Gato",
-            "Perro",
-            "Vaca",
-            "Pato"
-        ],
-        correcta: "Perro"
+        pregunta: "🌎 ¿En qué continente se encuentra Colombia?",
+        respuestas: ["Europa", "América", "Asia", "África"],
+        correcta: "América"
     },
 
     {
-        pregunta: "🌈 ¿Cuántos colores tiene normalmente el arcoíris?",
-        respuestas: [
-            "5",
-            "6",
-            "7",
-            "10"
-        ],
+        pregunta: "💻 ¿Cuál de estos es un lenguaje utilizado para crear páginas web?",
+        respuestas: ["JavaScript", "Excel", "Photoshop", "Windows"],
+        correcta: "JavaScript"
+    },
+
+    {
+        pregunta: "⚽ ¿Cuántos jugadores tiene un equipo de fútbol en el campo?",
+        respuestas: ["9", "10", "11", "12"],
+        correcta: "11"
+    },
+
+    {
+        pregunta: "🪐 ¿Cuál es el planeta conocido como el planeta rojo?",
+        respuestas: ["Venus", "Marte", "Júpiter", "Saturno"],
+        correcta: "Marte"
+    },
+
+    {
+        pregunta: "🧪 ¿Cuál de estos elementos es necesario para que los seres humanos respiremos?",
+        respuestas: ["Oxígeno", "Hierro", "Oro", "Carbono"],
+        correcta: "Oxígeno"
+    },
+
+    {
+        pregunta: "🎵 ¿Cuántas notas musicales básicas existen?",
+        respuestas: ["5", "6", "7", "8"],
         correcta: "7"
     },
 
     {
-        pregunta: "🐱 ¿Cuál de estos animales dice 'miau'?",
-        respuestas: [
-            "Gato",
-            "León",
-            "Caballo",
-            "Pez"
-        ],
-        correcta: "Gato"
+        pregunta: "🧠 ¿Qué órgano controla principalmente el cuerpo humano?",
+        respuestas: ["El corazón", "El cerebro", "El pulmón", "El estómago"],
+        correcta: "El cerebro"
     },
 
     {
-        pregunta: "🌎 ¿En qué planeta vivimos?",
-        respuestas: [
-            "Marte",
-            "La Tierra",
-            "Júpiter",
-            "La Luna"
-        ],
-        correcta: "La Tierra"
+        pregunta: "🏀 ¿En qué deporte se utiliza principalmente una canasta?",
+        respuestas: ["Fútbol", "Tenis", "Baloncesto", "Natación"],
+        correcta: "Baloncesto"
     },
 
     {
-        pregunta: "🍎 ¿De qué color es normalmente una manzana roja?",
-        respuestas: [
-            "Azul",
-            "Verde",
-            "Rojo",
-            "Morado"
-        ],
-        correcta: "Rojo"
+        pregunta: "🔢 ¿Cuál es el resultado de 12 × 5?",
+        respuestas: ["50", "55", "60", "65"],
+        correcta: "60"
     },
 
     {
-        pregunta: "🐟 ¿Dónde viven principalmente los peces?",
-        respuestas: [
-            "En el agua",
-            "En los árboles",
-            "En el desierto",
-            "En las nubes"
-        ],
-        correcta: "En el agua"
-    },
-
-    {
-        pregunta: "☀️ ¿Qué nos da luz durante el día?",
-        respuestas: [
-            "La Luna",
-            "El Sol",
-            "Las estrellas",
-            "Una nube"
-        ],
-        correcta: "El Sol"
-    },
-
-    {
-        pregunta: "🐘 ¿Cuál es un animal muy grande y tiene una trompa?",
-        respuestas: [
-            "Conejo",
-            "Elefante",
-            "Gato",
-            "Gallina"
-        ],
-        correcta: "Elefante"
-    },
-
-    {
-        pregunta: "🧙‍♂️ ¿Qué personaje suele usar una varita mágica?",
-        respuestas: [
-            "Mago",
-            "Panadero",
-            "Piloto",
-            "Doctor"
-        ],
-        correcta: "Mago"
-    },
-
-    {
-        pregunta: "🚗 ¿Qué vehículo tiene cuatro ruedas y normalmente usamos para viajar por carretera?",
-        respuestas: [
-            "Avión",
-            "Barco",
-            "Carro",
-            "Bicicleta"
-        ],
-        correcta: "Carro"
+        pregunta: "🚀 ¿Cuál es el planeta más cercano al Sol?",
+        respuestas: ["Mercurio", "Tierra", "Marte", "Júpiter"],
+        correcta: "Mercurio"
     }
 
 ];
@@ -247,87 +157,55 @@ let preguntaActual = 0;
 let puntos = 0;
 
 
-/* =====================================
-   MOSTRAR PREGUNTA
-===================================== */
+function mostrarPregunta() {
 
-function mostrarPregunta(){
-
-    const pregunta =
-        preguntas[preguntaActual];
-
+    const pregunta = preguntas[preguntaActual];
 
     document.getElementById("numeroPregunta").textContent =
-        "Pregunta " +
-        (preguntaActual + 1) +
-        " de " +
-        preguntas.length;
-
+        "Pregunta " + (preguntaActual + 1) +
+        " de " + preguntas.length;
 
     document.getElementById("pregunta").textContent =
         pregunta.pregunta;
 
-
     const contenedor =
         document.getElementById("respuestas");
 
-
     contenedor.innerHTML = "";
 
+    document.getElementById("resultadoTrivia").textContent = "";
 
-    document.getElementById("resultadoTrivia").textContent =
-        "";
+    pregunta.respuestas.forEach(function(respuesta) {
 
+        const boton = document.createElement("button");
 
-    pregunta.respuestas.forEach((respuesta, indice) => {
+        boton.textContent = respuesta;
 
-        const boton =
-            document.createElement("button");
-
-
-        boton.textContent =
-            respuesta;
-
-
-        boton.onclick = function(){
-
+        boton.onclick = function() {
             responder(respuesta);
-
         };
-
 
         contenedor.appendChild(boton);
 
     });
 
-
-    document.getElementById("siguiente").style.display =
-        "none";
-
+    document.getElementById("siguiente").style.display = "none";
 }
 
 
-/* =====================================
-   RESPONDER
-===================================== */
-
-function responder(respuesta){
+function responder(respuesta) {
 
     const correcta =
         preguntas[preguntaActual].correcta;
 
-
     const botones =
-        document.querySelectorAll(
-            "#respuestas button"
-        );
+        document.querySelectorAll("#respuestas button");
 
-
-    botones.forEach(boton => {
+    botones.forEach(function(boton) {
 
         boton.disabled = true;
 
-        if(boton.textContent === correcta){
+        if (boton.textContent === correcta) {
 
             boton.classList.add("respuesta-correcta");
 
@@ -336,20 +214,17 @@ function responder(respuesta){
     });
 
 
-    if(respuesta === correcta){
+    if (respuesta === correcta) {
 
         puntos++;
 
         document.getElementById("resultadoTrivia").textContent =
-            "🎉 ¡Muy bien! Respuesta correcta.";
+            "🎉 ¡Correcto! Ganaste 1 punto.";
 
-    }
-
-    else{
+    } else {
 
         document.getElementById("resultadoTrivia").textContent =
-            "😊 ¡Casi! La respuesta era: " +
-            correcta;
+            "❌ Incorrecto. La respuesta correcta era: " + correcta;
 
     }
 
@@ -357,29 +232,20 @@ function responder(respuesta){
     document.getElementById("puntaje").textContent =
         puntos;
 
-
     document.getElementById("siguiente").style.display =
         "inline-block";
-
 }
 
 
-/* =====================================
-   SIGUIENTE PREGUNTA
-===================================== */
-
-function siguientePregunta(){
+function siguientePregunta() {
 
     preguntaActual++;
 
-
-    if(preguntaActual < preguntas.length){
+    if (preguntaActual < preguntas.length) {
 
         mostrarPregunta();
 
-    }
-
-    else{
+    } else {
 
         terminarTrivia();
 
@@ -388,11 +254,7 @@ function siguientePregunta(){
 }
 
 
-/* =====================================
-   TERMINAR
-===================================== */
-
-function terminarTrivia(){
+function terminarTrivia() {
 
     document.querySelector(".trivia-box").style.display =
         "none";
@@ -410,69 +272,59 @@ function terminarTrivia(){
     let mensaje = "";
 
 
-    if(puntos === 10){
+    if (puntos === 10) {
 
         mensaje =
-            "🏆 ¡Perfecto! Respondiste todo correctamente.";
+            "🏆 ¡PERFECTO! Respondiste todas correctamente.";
 
-    }
-
-    else if(puntos >= 7){
+    } else if (puntos >= 8) {
 
         mensaje =
-            "🌟 ¡Excelente! Sabes muchísimo.";
+            "🔥 ¡Excelente! Tienes muy buenos conocimientos.";
 
-    }
-
-    else if(puntos >= 5){
+    } else if (puntos >= 6) {
 
         mensaje =
-            "😊 ¡Muy bien! Sigue practicando.";
+            "⭐ ¡Muy bien! Estuviste cerca de conseguir más.";
 
-    }
-
-    else{
+    } else if (puntos >= 4) {
 
         mensaje =
-            "💪 ¡Buen intento! Puedes volver a jugar.";
+            "💪 Buen intento. ¡Puedes mejorar tu puntuación!";
+
+    } else {
+
+        mensaje =
+            "🎮 Sigue practicando y vuelve a intentarlo.";
 
     }
 
 
     document.getElementById("resultadoFinal").textContent =
-        "Conseguiste " +
-        puntos +
-        " de " +
-        preguntas.length +
+        "Obtuviste " + puntos +
+        " de " + preguntas.length +
         " puntos. " +
         mensaje;
-
 }
 
 
-/* =====================================
-   REINICIAR
-===================================== */
-
-function reiniciarTrivia(){
+function reiniciarTrivia() {
 
     preguntaActual = 0;
 
     puntos = 0;
 
-
     document.querySelector(".trivia-box").style.display =
         "block";
 
     document.querySelector(".puntaje-trivia").style.display =
-        "block";
+        "inline-block";
 
     document.getElementById("finalTrivia").style.display =
         "none";
 
     document.getElementById("puntaje").textContent =
         "0";
-
 
     mostrarPregunta();
 
